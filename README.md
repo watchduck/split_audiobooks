@@ -4,13 +4,16 @@ Audio books from Audible (AAX files) can only be played using software provided 
 
 ## requirements
 
-* a converter like aax2mp3 and an Audible player (works only on Windows or Mac)
+* a converter like aax2mp3 and an Audible player (on Windows or Mac, should work with Wine on Linux)
 
 * [Audacity](https://en.wikipedia.org/wiki/Audacity_%28audio_editor%29)
 
 * the console program [mp3splt](http://mp3splt.sourceforge.net/mp3splt_page/documentation/man.html)
 
 This works on Linux. Small changes may be necessary for other operating systems.
+
+![video](http://paste.watchduck.net/1709/split_audiobooks_video.png)
+A video tutorial can be found [on Vimeo](https://vimeo.com/233148975). Maybe it is back [on Youtube](https://www.youtube.com/watch?v=oztnCJlY3bo) after it was [removed](http://paste.watchduck.net/1709/split_audiobooks_youtube_strike.png).
 
 ## usage
 
@@ -23,6 +26,8 @@ This works on Linux. Small changes may be necessary for other operating systems.
 * put `audible_to_audacity.py` and `audacity_to_mp3splt.py` there
 
 * copy the chapter list from Audible to `audible_chapters.txt`
+
+* (adapt the regex in `audible_to_audacity.py` if the lines in your chapter list look different)
 
 * run `audible_to_audacity.py`, which will create `audacity_labels_in.txt`
 
