@@ -4,7 +4,7 @@ Audio books from Audible (AAX files) can only be played using software provided 
 
 ## requirements
 
-* a converter like aax2mp3 and an Audible player (on Windows or Mac, should work with Wine on Linux)
+* a converter like aax2mp3 and an Audible player (works on Windows or Mac, should work with Wine on Linux)
 
 * [Audacity](https://en.wikipedia.org/wiki/Audacity_%28audio_editor%29)
 
@@ -42,3 +42,9 @@ A video tutorial can be found [on Vimeo](https://vimeo.com/233148975). Maybe it 
 * run `audacity_to_mp3splt.py`
 
 This creates a folder with mp3 files for the chapters. The names are like they were entered in Audacity.
+
+## _War and Peace_ example
+
+The example of `audacity_labels_out.txt` is for the 61 hour [recording of _War and Peace_](https://www.audible.com/pd/Classics/War-and-Peace-Audiobook/B002V0PVJC) (translated by Garnett, read by Davidson). For this book the times from the chapter table are not much help. In the Audacity screenshot it can be seen, that the start label for chapter 4 in part 9 is five minutes before the actual start on the right of the image.
+
+![audacity screenshot](http://paste.watchduck.net/1709/war_and_peace_audacity.png)
