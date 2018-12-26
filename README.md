@@ -52,11 +52,10 @@ The example of `audacity_labels_out.txt` is for the 61 hour [recording of _War a
 
 Audible makes occasional changes, so some tinkering may be required to adapt.
 
-<img align="right" width="200" border="1" src="https://cdn.pbrd.co/images/HTzAY1U.png">
 A small change was, that at some point there were line breaks in the chapter list.
 That can be fixed with a little [regex](https://en.wikipedia.org/wiki/Regular_expression) magic:
 Replace `Chapter (\d+)\n(\d)` by `Chapter \1 \2`.
-([Gedit](https://en.wikipedia.org/wiki/Gedit) uses `\1` and `\2` for the groupings. Other editors may use `$1` and `$2`.)
+(See [screenshot](https://cdn.pbrd.co/images/HTzAY1U.png). [Gedit](https://en.wikipedia.org/wiki/Gedit) uses `\1` and `\2` for the groupings. Other editors may use `$1` and `$2`.)
 
 A more important and annoying change is, that the chapter list now (December 2018) shows chapter lenghts instead of absolute times.
 [`audible_to_audacity.py`](https://github.com/watchduck/split_audiobooks/blob/master/audible_to_audacity.py)
