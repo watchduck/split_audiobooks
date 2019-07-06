@@ -44,7 +44,7 @@ This creates a folder with mp3 files for the chapters. The names are like they w
 
 ## _War and Peace_ example
 
-The example of `audacity_labels_out.txt` is for the 61 hour [recording of _War and Peace_](https://www.audible.com/pd/Classics/War-and-Peace-Audiobook/B002V0PVJC) (translated by Garnett, read by Davidson). For this book the times from the chapter table are not much help. In the Audacity screenshot it can be seen, that the start label for chapter 4 in part 9 is five minutes before the actual start on the right of the image.
+The example of `audacity_labels_out.txt` is for the 61 hour recording of _War and Peace_ (translated by Garnett, read by Davidson). For this book the times from the chapter table are not much help. In the Audacity screenshot it can be seen, that the start label for chapter 4 in part 9 is five minutes before the actual start on the right of the image.
 
 ![audacity screenshot](http://paste.watchduck.net/1709/war_and_peace_audacity.png)
 
@@ -55,7 +55,7 @@ Audible makes occasional changes, so some tinkering may be required to adapt.
 A small change was, that at some point there were line breaks in the chapter list.
 That can be fixed with a little [regex](https://en.wikipedia.org/wiki/Regular_expression) magic:
 Replace `Chapter (\d+)\n(\d)` by `Chapter \1 \2`.
-(See [screenshot](https://cdn.pbrd.co/images/HTzAY1U.png). [Gedit](https://en.wikipedia.org/wiki/Gedit) uses `\1` and `\2` for the groupings. Other editors may use `$1` and `$2`.)
+(See [screenshot](http://paste.watchduck.net/1812/gedit_regex.png). [Gedit](https://en.wikipedia.org/wiki/Gedit) uses `\1` and `\2` for the groupings. Other editors may use `$1` and `$2`.)
 
 A more important and annoying change is, that the chapter list now (December 2018) shows chapter lenghts instead of absolute times.
 [`audible_to_audacity.py`](https://github.com/watchduck/split_audiobooks/blob/master/audible_to_audacity.py)
