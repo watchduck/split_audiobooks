@@ -54,7 +54,7 @@ Audible makes occasional changes, so some tinkering may be required to adapt.
 
 A small change was, that at some point there were line breaks in the chapter list.
 That can be fixed with a little [regex](https://en.wikipedia.org/wiki/Regular_expression) magic:
-Replace `Chapter (\d+)\n(\d)` by `Chapter \1 \2`.
+Replace `Chapter (\d+)\n(\d)` by `Chapter \1\t\2`.
 (See [screenshot](http://paste.watchduck.net/1812/gedit_regex.png). [Gedit](https://en.wikipedia.org/wiki/Gedit) uses `\1` and `\2` for the groupings. Other editors may use `$1` and `$2`.)
 
 A more important and annoying change is, that the chapter list now (December 2018) shows chapter lenghts instead of absolute times.
