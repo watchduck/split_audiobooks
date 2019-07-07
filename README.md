@@ -4,9 +4,12 @@ Audio books from Audible (AAX files) can only be played using software provided 
 
 A video showing the steps can be found [on Youtube](https://www.youtube.com/watch?v=oztnCJlY3bo).
 
+In the video the initial conversion is done with aax2mp3 and the Audible player on Windows.<br>
+Meanwhile (2019) [OpenAudible](https://openaudible.org/) may be a better choice. It works on all platforms, including Linux.
+
 ## requirements
 
-* a converter like aax2mp3 and an Audible player (works on Windows or Mac, might work with Wine on Linux)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 * [Audacity](https://en.wikipedia.org/wiki/Audacity_%28audio_editor%29)
 
@@ -16,25 +19,21 @@ This works on Linux. Small changes may be necessary for other operating systems.
 
 ## usage
 
-* use a program like aax2mp3 to create the long mp3
+* create the uncut mp3
 
 * create a working folder (This is where all the following steps happen.)
 
-* move the long mp3 there and call it `uncut.mp3`
+* move the uncut mp3 there and call it `uncut.mp3`
 
 * put `audible_to_audacity.py` and `audacity_to_mp3splt.py` there
 
-* copy the chapter list from Audible to `audible_chapters.txt`
-
-* (adapt the regex in `audible_to_audacity.py` if the lines in your chapter list look different)
+* copy the chapter list from Audible to `audible_chapters.txt` (keeping only the chapter names and times)
 
 * run `audible_to_audacity.py`, which will create `audacity_labels_in.txt`
 
-* (If you are fine with the makeshift chapter names and the times in that file, you could just skip the Audacity part, and rename it to `audacity_labels_out.txt`.)
+* open `uncut.mp3` in Audacity and import `audacity_labels_in.txt`
 
-* open `uncut.mp3` in Audacity and import the labels in `audacity_labels_in.txt`
-
-* modify chapter names and times as you wish (Make sure to enter names that will sort the files in the correct order. This usually requires starting the file name with a number - starting with leading zeros if necessary.)
+* modify chapter names and times as you wish (The default chapter names are numbers with leading zeros. If you remove them, make sure to add other prefixes that sort the files in the correct order.)
 
 * export the labels as `audacity_labels_out.txt`
 
@@ -50,16 +49,19 @@ The example of `audacity_labels_out.txt` is for the 61 hour recording of _War an
 
 ## adapting to changes by Audible
 
-Audible makes occasional changes, so some tinkering may be required to adapt.
-
-A small change was, that at some point there were line breaks in the chapter list.
-That can be fixed with a little [regex](https://en.wikipedia.org/wiki/Regular_expression) magic:
-Replace `Chapter (\d+)\n(\d)` by `Chapter \1\t\2`.
-(See [screenshot](http://paste.watchduck.net/1812/gedit_regex.png). [Gedit](https://en.wikipedia.org/wiki/Gedit) uses `\1` and `\2` for the groupings. Other editors may use `$1` and `$2`.)
-
-A more important and annoying change is, that the chapter list now (December 2018) shows chapter lenghts instead of absolute times.
+Audible makes occasional changes, so some tinkering may be required to adapt. A small change was, that at some point there were line breaks in the chapter list. A more important and annoying change is, that the chapter list now (2019) shows chapter lenghts instead of absolute times.
 [`audible_to_audacity.py`](https://github.com/watchduck/split_audiobooks/blob/master/audible_to_audacity.py)
-was changed accordingly.
-([This](https://github.com/watchduck/split_audiobooks/blob/56dfac2dfeae9897563ed421cec02e5981258a1c/audible_to_audacity.py)
-is the former version.)
-But the half second gap is only approximate. To find the exact beginning for each chapter it is necessary to manually adapt each label in Audacity. This is tedious, but at the right zoom level it is easy to visually identify the gaps between chapters.
+was changed accordingly from the
+[former version](https://github.com/watchduck/split_audiobooks/blob/56dfac2dfeae9897563ed421cec02e5981258a1c/audible_to_audacity.py).
+It now expects `audible_chapters.txt` to look like this for two chapters of 2 and 1.5 minutes:
+
+    Chapter 1
+    00:02:00
+    Chapter 2
+    00:01:30
+
+The script adds the chapter lengths together and assumes half second gap between the chapters, but this is only approximate. To find the exact beginning for each chapter it is necessary to manually adapt each label in Audacity. This is tedious, but at the right zoom level it is easy to visually identify the gaps between chapters.
+
+The chapter names provided by Audible are almost always just like "Chapter 1". They are ignored by the script, and numbers with leading zeros are generated as new chapter names. E.g. `000` for the intro and `001` the first chapter. An integer can be passed to the script as a parameter to increase or reduce these numbers:
+
+    $ python audible_to_audacity.py 1
