@@ -66,6 +66,6 @@ It now expects `audible_chapters.txt` to look like this for two chapters of 2 an
 
 The script adds the chapter lengths together and assumes half second gap between the chapters, but this is only approximate. To find the exact beginning for each chapter it is necessary to manually adapt each label in Audacity. This is tedious, but at the right zoom level it is easy to visually identify the gaps between chapters.
 
-The chapter names provided by Audible are almost always just like "Chapter 1". They are ignored by the script, and numbers with leading zeros are generated as new chapter names. E.g. `000` for the intro and `001` the first chapter. An integer can be passed to the script as a parameter to increase or reduce these numbers:
+The chapter names provided by Audible are almost always just like "Chapter 1". They are ignored by the script, and numbers with leading zeros are generated as new chapter names. E.g. `000` for the intro and `001` for the first chapter. An integer can be passed to the script as a parameter to increase or reduce these numbers:
 
     $ python audible_to_audacity.py 1
