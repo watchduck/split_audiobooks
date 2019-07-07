@@ -43,7 +43,7 @@ This creates a folder with mp3 files for the chapters. The names are like they w
 
 ## _War and Peace_ example
 
-The example of `audacity_labels_out.txt` is for the 61 hour recording of _War and Peace_ (translated by Garnett, read by Davidson). For this book the times from the chapter table are not much help. In the Audacity screenshot it can be seen, that the start label for chapter 4 in part 9 is five minutes before the actual start on the right of the image.
+The example file [`audacity_labels_out.txt`](https://github.com/watchduck/split_audiobooks/blob/master/audacity_labels_out_example.txt) is for the 61 hour recording of _War and Peace_ (translated by Garnett, read by Davidson). For this book the times from the chapter table are not much help. In the Audacity screenshot it can be seen, that the start label for chapter 4 in part 9 is five minutes before the actual start on the right of the image.
 
 ![audacity screenshot](http://paste.watchduck.net/1709/war_and_peace_audacity.png)
 
