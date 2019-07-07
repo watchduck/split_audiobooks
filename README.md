@@ -17,6 +17,9 @@ Meanwhile (2019) [OpenAudible](https://openaudible.org/) may be a better choice.
 
 This works on Linux. Small changes may be necessary for other operating systems.
 
+(In [`audacity_to_mp3splt.py`](https://github.com/watchduck/split_audiobooks/blob/master/audacity_to_mp3splt.py)
+spaces encoded as `'\ '` are used in a command. If your OS complains about that, change `name_spaces` accordingly.)
+
 ## usage
 
 * create the uncut mp3
@@ -39,7 +42,7 @@ This works on Linux. Small changes may be necessary for other operating systems.
 
 * run `audacity_to_mp3splt.py`
 
-This creates a folder with mp3 files for the chapters. The names are like they were entered in Audacity.
+This creates a folder with mp3 files for the chapters. The file names are like they were entered in Audacity, but with the spaces replaced by underscores. For the title tags the names with spaces are used.
 
 ## _War and Peace_ example
 
