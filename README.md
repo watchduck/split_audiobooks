@@ -18,7 +18,8 @@ Meanwhile (2019) [OpenAudible](https://openaudible.org/) may be a better choice.
 This works on Linux. Small changes may be necessary for other operating systems.
 
 (In [`audacity_to_mp3splt.py`](https://github.com/watchduck/split_audiobooks/blob/master/audacity_to_mp3splt.py)
-spaces encoded as `'\ '` are used in a command. If your OS complains about that, change `name_spaces` accordingly.)
+spaces encoded as `'\ '` are used in a command.<br>
+If your OS complains about that, change `name_spaces` accordingly.)
 
 ## usage
 
